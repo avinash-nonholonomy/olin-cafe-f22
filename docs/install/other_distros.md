@@ -17,8 +17,6 @@ yay gtkwave iverilog verilator python-bitstring
 
 # All non-debian based distros:
 
-Digilent tools:
+Digilent:
 
-Go to the [utilities](https://digilent.com/reference/lib/exe/fetch.php?tok=358c01&media=https%3A%2F%2Fmautic.digilentinc.com%2Fadept-utilities-download) site and download the "Linux 64-bit Zip" option. Then, from where you downloaded it, extract it, then run the `install.sh` script as root (after skimming the script, never run downloaded code as root without reading it). 
-
-[runtime](https://digilent.com/reference/lib/exe/fetch.php?tok=f5f244&media=https%3A%2F%2Fmautic.digilentinc.com%2Fadept-runtime-download)
+Go to the [utilities](https://digilent.com/reference/lib/exe/fetch.php?tok=358c01&media=https%3A%2F%2Fmautic.digilentinc.com%2Fadept-utilities-download) site and download the "Linux 64-bit Zip" option. Then, from where you downloaded it, extract it, then run the `install.sh` script as root (after skimming the script, never run downloaded code as root without reading it).  Then do the same for the [runtime](https://digilent.com/reference/lib/exe/fetch.php?tok=f5f244&media=https%3A%2F%2Fmautic.digilentinc.com%2Fadept-runtime-download).

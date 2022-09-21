@@ -80,6 +80,7 @@ sudo apt-get install \
     libtinfo5 libxtst6 \
 
 sudo adduser $USER dialout
+```
 
 Digilent:
 
