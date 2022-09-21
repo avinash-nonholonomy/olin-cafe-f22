@@ -115,6 +115,16 @@ cd /mnt/tmp
 # This step will copy the files to your computer, takes 20-30min
 sudo ./custom_install.sh /path/to/destination
 sudo chown -R $USER /path/to/destination # make sure you own the files once they're copied.
+```
+There's a bug in my script, so you might end up with an extra "full_install" folder, e.g. `/path/to/destination/full_install/Vivado/...`. If that's the case you can do:
+```bash
+cd /path/to/destination
+mv full_install/* ./
+rmdir full_instll
+```
+to fix that issue.
+
+```bash
 cd /path/to/destination/Vivado/2021.1/
 nano settings64.sh # replace all paths with the /path/to/destination you used above
 nano .settings64-Vivado.sh # ditto
