@@ -27,7 +27,7 @@ task print_io;
 endtask
 
 integer i;
-// 2) the test cases
+// 2) the test cases - initial blocks are like programming, not hardware
 initial begin
   $dumpfile("mux.fst");
   $dumpvars(0, UUT);

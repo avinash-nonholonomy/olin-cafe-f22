@@ -5,6 +5,7 @@ VVP=vvp
 VVP_POST=-fst
 # VIVADO=vivado -mode batch -source # Not used in this demo.
 
+#target : # dependencies
 test_mux: test_mux.sv mux.sv
 	${IVERILOG} $^ -o test_mux.bin && ${VVP} test_mux.bin ${VVP_POST}
 
