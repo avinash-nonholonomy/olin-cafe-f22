@@ -165,4 +165,3 @@ cp -r vivado-boards/new/board_files/* ${VIVADO_PATH}/data/boards/board_files/
 ## Checking the install.
 
 You can check to see that all the tools were installed by running the `tools/check_install` script. 
-
