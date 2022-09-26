@@ -141,7 +141,7 @@ If you want the full install, but don't have the ridiculous 120GB plus Xilinx ne
 function setup_xilinx(){
     # Make a variable with the install path.
     export XILINX_INSTALL_PATH="/mnt/bulk/avinash/embedded/xilinx/"
-    VERSION="2021.1"
+    VERSION="2022.1"
     export VIVADO_PATH=${XILINX_INSTALL_PATH}/Vivado/${VERSION}
     
     # Calls the Xilinx setup scripts so that you can run the tools.
