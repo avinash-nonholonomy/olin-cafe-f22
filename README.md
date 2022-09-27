@@ -37,6 +37,7 @@ Contact the [maintainer](mailto:avinash+fpga@nonholonomy.com) if you find any is
 
 Supported Linux Distros:
 - [*] Ubuntu 22.04
+  - Explicitly not supported on Ubuntu 20.04, but if needs must, try [this](docs/install/ubuntu2004.md).
 - [*] Gentoo
 - [*] ArchLinux
 - Probably works fine on other flavors, especially since we're building most of this from source. The following instructions are for ubuntu, you can check out intructions for other distros [here](docs/install/other_distros.md)
