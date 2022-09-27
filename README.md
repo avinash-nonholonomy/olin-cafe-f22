@@ -154,6 +154,7 @@ Aside: Xilinx clutters your path with a lot of copies of things that are probabl
 
 
 ### Digilent Board Files install
+From the digilent [docs](https://digilent.com/reference/programmable-logic/guides/installing-vivado-and-vitis#install_digilent_s_board_files)
 Replace `XILINX_INSTALL_PATH` and `VIVADO_PATH` as appropriate below.
 ```bash
 cd $XILINX_INSTALL_PATH 
