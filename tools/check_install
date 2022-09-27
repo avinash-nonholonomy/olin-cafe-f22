@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Runs a quick check to see if the required tools are installed.
+
+missing=0
+for tool in iverilog verilator gtkwave python3 make djtgcfg
+do
+  if ! which ${tool} > /dev/null; then
+      echo "Tool '${tool}' not installed."
+      missing=$((missing + 1))
+  fi
+done
+
+for python_library in bitstring
+do 
+    if ! python -m ${python_library} > /dev/null; then
+        echo "Python library ${python_library} not installed."
+        missing=$((missing + 1))
+    fi
+done
+
+if [[ $missing != 0 ]] ; then
+    echo "ERROR - ${missing} package(s) missing, re-read the docs and try again."
+    exit 1 # A non-zero exit is considered a failure
+else
+    echo "SUCCESS - all required packages installed."
+    exit 0
+fi
+
+exit 0

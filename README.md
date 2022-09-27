@@ -39,7 +39,7 @@ Supported Linux Distros:
 - [*] Ubuntu 22.04
 - [*] Gentoo
 - [*] ArchLinux
-- Probably works fine on other flavors, especially since we're building most of this from source.
+- Probably works fine on other flavors, especially since we're building most of this from source. The following instructions are for ubuntu, you can check out intructions for other distros [here](docs/install/other_distros.md)
 
 Last, a note on philosophy - there are a lot of techniques to batch together the install of all of these tools (virtual machines, Docker/containers, build scripts, etc.), but a large part of being a good embedded engineer is know how to maintain and install a large set of tools with low to minimal documentation. If you are new to Linux command line/bash installation I recommend you work through the following tutorials before proceeding:
   - [Command Line for Beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview).
@@ -141,7 +141,7 @@ If you want the full install, but don't have the ridiculous 120GB plus Xilinx ne
 function setup_xilinx(){
     # Make a variable with the install path.
     export XILINX_INSTALL_PATH="/mnt/bulk/avinash/embedded/xilinx/"
-    VERSION="2021.1"
+    VERSION="2022.1"
     export VIVADO_PATH=${XILINX_INSTALL_PATH}/Vivado/${VERSION}
     
     # Calls the Xilinx setup scripts so that you can run the tools.
@@ -163,3 +163,6 @@ mkdir -p ${VIVADO_PATH}/data/boards/board_files/
 cp -r vivado-boards/new/board_files/* ${VIVADO_PATH}/data/boards/board_files/
 ```
 
+## Checking the install.
+
+You can check to see that all the tools were installed by running the `tools/check_install` script. 
