@@ -42,8 +42,9 @@ verlt() {
 
 version_errors=0
 # Version checking
-verlt `gtkwave -V  | grep -oP 'v\K\d+\.\d+\.\d+'` 3.3.1 && version_errors=$((version_errors + 1)) && echo "ERROR: gtkwave version < 3.3.104"
+verlt `gtkwave -V  | grep -oP 'v\K\d+\.\d+\.\d+'` 3.3.104 && version_errors=$((version_errors + 1)) && echo "ERROR: gtkwave version < 3.3.104"
 verlt `iverilog -V | grep -oP 'Icarus Verilog version \K\d+\.\d'` 11.0 && version_errors=$((version_errors + 1)) && echo "Error: iverilog version < 11.0"
+verlt `vivado -help | grep -oP 'Vivado v\K\d+\.\d+'` 2022.1 && version_errors=$((version_errors + 1)) && echo "Error: vivado version < 2022.1"
 
 if [[ $version_errors != 0 ]] ; then
     echo "At least ${version_errors} packages have the wrong version."
@@ -52,7 +53,7 @@ else
     echo "All checked versions... OK."
 fi
 
-# #TODO(avinash) run a program that checks more Vivado functionality.
+#TODO(avinash) run a program that checks more Vivado functionality.
 
 echo "SUCCESS - you are good to go!"
 exit 0

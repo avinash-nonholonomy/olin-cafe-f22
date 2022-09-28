@@ -37,7 +37,7 @@ Contact the [maintainer](mailto:avinash+fpga@nonholonomy.com) if you find any is
 
 Supported Linux Distros:
 - [*] Ubuntu 22.04
-  - Explicitly not supported on Ubuntu 20.04, but if needs must, try [this](docs/install/ubuntu2004.md).
+  - Explicitly not supported on Ubuntu 20.04, but if needs must, this [guide](docs/install/ubuntu2004.md) shows you how to get the right version of `iverilog`. You might still have other issues.
 - [*] Gentoo
 - [*] ArchLinux
 - Probably works fine on other flavors, especially since we're building most of this from source. The following instructions are for ubuntu, you can check out intructions for other distros [here](docs/install/other_distros.md)
