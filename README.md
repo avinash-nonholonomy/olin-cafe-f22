@@ -37,6 +37,7 @@ Contact the [maintainer](mailto:avinash+fpga@nonholonomy.com) if you find any is
 
 Supported Linux Distros:
 - [*] Ubuntu 22.04
+  - Explicitly not supported on Ubuntu 20.04, but if needs must, this [guide](docs/install/ubuntu2004.md) shows you how to get the right version of `iverilog`. You might still have other issues.
 - [*] Gentoo
 - [*] ArchLinux
 - Probably works fine on other flavors, especially since we're building most of this from source. The following instructions are for ubuntu, you can check out intructions for other distros [here](docs/install/other_distros.md)
@@ -154,6 +155,7 @@ Aside: Xilinx clutters your path with a lot of copies of things that are probabl
 
 
 ### Digilent Board Files install
+From the digilent [docs](https://digilent.com/reference/programmable-logic/guides/installing-vivado-and-vitis#install_digilent_s_board_files)
 Replace `XILINX_INSTALL_PATH` and `VIVADO_PATH` as appropriate below.
 ```bash
 cd $XILINX_INSTALL_PATH 

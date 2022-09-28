@@ -1,9 +1,14 @@
-#!/bin/bash
+1#!/bin/bash
 
 # Runs a quick check to see if the required tools are installed.
 
+# Checking OS version
+if ! -e /etc/lsb-release || ! grep -q 'DISTRIB_RELEASE=22.04' /etc/lsb-release ; then
+    echo "WARNING: Ubuntu 22.04 not detected! If you are still running 20.04 make sure you check the versions of all the tools."
+fi
+
 missing=0
-for tool in iverilog verilator gtkwave python3 make djtgcfg
+for tool in iverilog verilator gtkwave python3 make djtgcfg vivado
 do
   if ! which ${tool} > /dev/null; then
       echo "Tool '${tool}' not installed."
@@ -13,7 +18,7 @@ done
 
 for python_library in bitstring
 do 
-    if ! python -m ${python_library} > /dev/null; then
+    if ! python3 -m ${python_library} > /dev/null; then
         echo "Python library ${python_library} not installed."
         missing=$((missing + 1))
     fi
@@ -23,8 +28,32 @@ if [[ $missing != 0 ]] ; then
     echo "ERROR - ${missing} package(s) missing, re-read the docs and try again."
     exit 1 # A non-zero exit is considered a failure
 else
-    echo "SUCCESS - all required packages installed."
-    exit 0
+    echo "All required packages installed."
 fi
 
+# Version checking from https://coderwall.com/p/khvxca/bash-string-version-comparaison
+verlte() {
+    [ "$1" = "$2" ] && return 1 || [  "$2" = "`echo -e "$1\n$2" | sort -V | head -n1`" ]
+}
+
+verlt() {
+    [ "$1" = "$2" ] && return 1 || verlte $2 $1
+}
+
+version_errors=0
+# Version checking
+verlt `gtkwave -V  | grep -oP 'v\K\d+\.\d+\.\d+'` 3.3.104 && version_errors=$((version_errors + 1)) && echo "ERROR: gtkwave version < 3.3.104"
+verlt `iverilog -V | grep -oP 'Icarus Verilog version \K\d+\.\d'` 11.0 && version_errors=$((version_errors + 1)) && echo "Error: iverilog version < 11.0"
+verlt `vivado -help | grep -oP 'Vivado v\K\d+\.\d+'` 2022.1 && version_errors=$((version_errors + 1)) && echo "Error: vivado version < 2022.1"
+
+if [[ $version_errors != 0 ]] ; then
+    echo "At least ${version_errors} packages have the wrong version."
+    exit 1
+else 
+    echo "All checked versions... OK."
+fi
+
+#TODO(avinash) run a program that checks more Vivado functionality.
+
+echo "SUCCESS - you are good to go!"
 exit 0
