@@ -10,7 +10,7 @@ module test_decoders;
 
   decoder_3_to_8 UUT(ena, in, out);
 
-  initial begin
+  initial begin // In standard programming land (line by line execution)
     // Collect waveforms
     $dumpfile("decoders.fst");
     $dumpvars(0, UUT);
