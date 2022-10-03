@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.106 (w)1999-2020 BSI
+[*] Mon Oct  3 21:36:00 2022
+[*]
+[dumpfile] "/home/avinash/src/olin-cafe-f22/examples/class-22-10-03/glitch.fst"
+[dumpfile_mtime] "Mon Oct  3 21:34:55 2022"
+[dumpfile_size] 695
+[savefile] "/home/avinash/src/olin-cafe-f22/examples/class-22-10-03/glitch.gtkw"
+[timestart] 614300
+[size] 3840 2400
+[pos] -1 -1
+*-15.000000 810000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_mux.
+[sst_width] 459
+[signals_width] 366
+[sst_expanded] 1
+[sst_vpaned_height] 771
+@28
+test_mux.UUT.select
+test_mux.UUT.in0
+test_mux.UUT.in1
+test_mux.UUT.select
+test_mux.UUT.out
+@29
+test_mux.UUT.correct_out
+@200
+-Internal Signals
+@28
+test_mux.UUT.select_bar
+test_mux.UUT.and0
+test_mux.UUT.and1
+[pattern_trace] 1
+[pattern_trace] 0
