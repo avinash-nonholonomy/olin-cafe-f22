@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.106 (w)1999-2020 BSI
+[*] Mon Oct  3 20:39:21 2022
+[*]
+[dumpfile] "/home/avinash/src/cafe-instructors/hws/fa22/4/practice.fst"
+[dumpfile_mtime] "Mon Oct  3 20:39:15 2022"
+[dumpfile_size] 717
+[savefile] "/home/avinash/src/cafe-instructors/hws/fa22/4/practice.gtkw"
+[timestart] 0
+[size] 1838 1238
+[pos] -1 -1
+*-15.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_practice.
+[sst_width] 459
+[signals_width] 177
+[sst_expanded] 1
+[sst_vpaned_height] 323
+@28
+test_practice.UUT.clk
+test_practice.UUT.ena
+test_practice.UUT.mux_out
+@29
+test_practice.UUT.out
+@c00028
+test_practice.UUT.q[2:0]
+@28
+(0)test_practice.UUT.q[2:0]
+(1)test_practice.UUT.q[2:0]
+(2)test_practice.UUT.q[2:0]
+@1401200
+-group_end
+@28
+test_practice.UUT.rst
+test_practice.UUT.seed
+test_practice.UUT.xor_out
+[pattern_trace] 1
+[pattern_trace] 0
