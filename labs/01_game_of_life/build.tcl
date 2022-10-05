@@ -7,6 +7,9 @@ read_verilog [ glob ./hdl/*.sv ]
 read_xdc ./main.xdc
 
 # Sythesis & Optimization
+# Parts are either xc7a35tcpg236-1 or xc7a15tcpg236-1
+# Select the right one based on the sticker on your board!
+# synth_design -top main -part xc7a35tcpg236-1
 synth_design -top main -part xc7a15tcpg236-1
 write_checkpoint -force synthesis.checkpoint
 opt_design
