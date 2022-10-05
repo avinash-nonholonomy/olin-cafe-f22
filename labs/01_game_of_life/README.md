@@ -58,8 +58,11 @@ Ask the instructor for an FPGA and stub USB cable. The micro-usb connector on th
 *NEVER modify your breadboard circuitry while the FPGA is plugged in!*
 
 The `main.sv` file has some simple logic for the built in LEDs based on the buttons. 
-  - See if you can a) flash the FPGA and have it do what the code describes using `make program_fpga` or the gui (tutorial in class).
+  - See if you can a) flash the FPGA and have it do what the code describes using `make program_fpga_vivado` or `make program_fpga_digilent` (tutorial in class).
+  - *CRITICAL* you will need to edit `build.tcl` if you have a 35T class FPGA!!! There are comments showing what you need to do in that file.
   - Alter the button -> leds logic, then reflash to confirm that you can make changes!
+
+
 
 ## 4. LED Array Driver
 - Read the datasheet of the LED driver to implement combinational logic that can drive the row and column pins of the LED array. This is pretty challenging, but think about what the voltages need to be at the row pin or the column pin based on the cell status and the status of our x decoder.
