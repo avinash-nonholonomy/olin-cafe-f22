@@ -1,14 +1,13 @@
 `timescale 1ns/1ps
 `default_nettype none
-/*
-  a 1 bit addder that we can daisy chain for 
-  ripple carry adders
-*/
 
-module adder_1(a, b, c_in, sum, c_out);
+module adder_1(a, b, Cin, S, Cout);
+    input wire a, b, Cin;
+    output logic S, Cout;
 
-input wire a, b, c_in;
-output logic sum, c_out;
-
+    always_comb begin
+        S = a ^ b ^ Cin;
+        Cout = (a & b) | (a & Cin) | (b & Cin);
+    end
 
 endmodule

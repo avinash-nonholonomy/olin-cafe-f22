@@ -33,3 +33,5 @@ generate
 endgenerate
 
 endmodule
+// to instantiate
+// adder_n #(.N(32)) adder_32bit_a ( port list );

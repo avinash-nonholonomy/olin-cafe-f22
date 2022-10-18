@@ -22,7 +22,7 @@ display modules, available from [adafruit](https://www.adafruit.com/product/454)
 
 */
 
-// `define DISABLE_GAME // Uncomment this to degug your LED driver without the game running.
+// `define DISABLE_GAME // Uncomment this to debug your LED driver without the game running.
 
 module main(clk, buttons, leds, rgb, cols, rows);
 //Module I/O and parameters
