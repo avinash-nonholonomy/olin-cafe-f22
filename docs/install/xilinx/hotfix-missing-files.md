@@ -19,4 +19,4 @@ tar -xzvf extra-files.tgz
 rm extra-files.tgz
 ```
 
-Long story short, Vivado is even more messed up than I thought, and they fixed an issue with long-register initialization (the initial state of the conway cells in this case) only in the folder for the `virtex` series of parts, not the `kintex` series. 
+Long story short, Vivado is even more messed up than I thought, and they fixed an issue with long-register initialization (the initial state of the conway cells in this case) only in the folder for the `virtex` series of parts, not the `artix` series that we are using. Best thing, the error message is completely unrelated (DRC just fails) to the root cause (some files missing).
