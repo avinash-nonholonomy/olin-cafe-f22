@@ -18,7 +18,7 @@ always_ff @(posedge clk) begin
   else begin
     if (ena) begin
       q <= d;
-    end
+    end // else q <= q; // hidden default.
   end
 end
 
