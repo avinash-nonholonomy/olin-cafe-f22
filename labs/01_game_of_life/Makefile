@@ -18,6 +18,9 @@ MAIN_SRCS=${CONWAY_SRCS} ${LED_ARRAY_SRCS} hdl/main.sv
 test_decoder_1_2: tests/test_decoder_1_2.sv ${DECODER_SRCS}
 	${IVERILOG} $^ -o test_decoder_1_2.bin && ${VVP} test_decoder_1_2.bin ${VVP_POST}
 
+test_decoder_2_4: tests/test_decoder_2_4.sv hdl/*.sv
+	${IVERILOG} $^ -o test_decoder_2_4.bin && ${VVP} test_decoder_2_4.bin ${VVP_POST}
+
 test_decoders: tests/test_decoders.sv ${DECODER_SRCS}
 	${IVERILOG} $^ -o test_decoders.bin && ${VVP} test_decoders.bin ${VVP_POST}
 
@@ -58,4 +61,4 @@ clean:
 
 # Call this to generate your submission zip file.
 submission:
-	zip submission.zip Makefile *.sv README.md docs/* *.tcl *.xdc *.fst
+	zip submission.zip Makefile hdl/*.sv tests/*.sv README.md docs/* *.tcl *.xdc
