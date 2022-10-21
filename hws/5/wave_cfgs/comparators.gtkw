@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Fri Oct 21 02:58:25 2022
+[*]
+[dumpfile] "/home/avinash/src/cafe-instructors/hws/fa22/5/comparators.fst"
+[dumpfile_mtime] "Fri Oct 21 02:56:33 2022"
+[dumpfile_size] 3982
+[savefile] "/home/avinash/src/cafe-instructors/hws/fa22/5/wave_cfgs/comparators.gtkw"
+[timestart] 0
+[size] 2542 639
+[pos] -1 -1
+*-10.817472 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_comparators.
+[sst_width] 329
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 171
+@200
+-Inputs
+@22
+test_comparators.a[31:0]
+test_comparators.b[31:0]
+@200
+-Comparator Equals
+@28
+test_comparators.equals
+test_comparators.correct_equals
+@200
+-Comparator Less Than
+@28
+test_comparators.less_than
+test_comparators.correct_less_than
+[pattern_trace] 1
+[pattern_trace] 0
