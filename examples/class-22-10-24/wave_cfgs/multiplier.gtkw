@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.106 (w)1999-2020 BSI
+[*] Tue Oct 25 20:43:34 2022
+[*]
+[dumpfile] "/home/avinash/src/cafe-instructors/examples/class-22-10-24/multiplier.fst"
+[dumpfile_mtime] "Tue Oct 25 20:43:03 2022"
+[dumpfile_size] 3659
+[savefile] "/home/avinash/src/cafe-instructors/examples/class-22-10-24/wave_cfgs/multiplier.gtkw"
+[timestart] 0
+[size] 3840 2400
+[pos] -1 -1
+*-18.929766 100000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_multiplier.
+[sst_width] 459
+[signals_width] 923
+[sst_expanded] 1
+[sst_vpaned_height] 728
+@28
+test_multiplier.UUT.rst
+test_multiplier.UUT.clk
+@200
+-0: IDLE, 1: COMPUTE, 2: DONE
+@24
+test_multiplier.UUT.state[1:0]
+test_multiplier.UUT.a[2:0]
+test_multiplier.UUT.b[2:0]
+test_multiplier.UUT.valid_a[2:0]
+test_multiplier.UUT.valid_b[2:0]
+test_multiplier.UUT.counter[2:0]
+test_multiplier.UUT.product[5:0]
+@28
+test_multiplier.UUT.shortcut
+@200
+-Handshake Signals
+@29
+test_multiplier.UUT.clk
+@24
+test_multiplier.UUT.state[1:0]
+@28
+test_multiplier.UUT.ready_i
+test_multiplier.UUT.valid_i
+test_multiplier.UUT.valid_o
+test_multiplier.UUT.ready_o
+@200
+-Testbench Signals
+@24
+test_multiplier.main_unit_busy_cycles
+[pattern_trace] 1
+[pattern_trace] 0

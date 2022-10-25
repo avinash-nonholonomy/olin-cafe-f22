@@ -1,8 +1,11 @@
 `timescale 1ns/1ps
 `default_nettype none
+
 module test_multiplier;
 
 parameter N = 3;
+parameter MAX_CYCLES=10_000;
+parameter N_RANDOM_TESTS=100;
 
 int errors = 0;
 logic clk, rst;
@@ -29,31 +32,52 @@ task print_io;
   $display("%d * %d = %d (%d)", a, b, product, correct_product);
 endtask
 
+int main_unit_busy_cycles = 0;
 task wait_till_done;
-  while(~valid_o) @(posedge clk);
+  ready_o = 0;
+  main_unit_busy_cycles = $urandom_range(0,10);
+  while(valid_o !== 1'b1) begin
+    @(negedge clk);
+    if(main_unit_busy_cycles >= 0) begin
+      ready_o = 1;
+      main_unit_busy_cycles = 0;
+    end else begin
+      main_unit_busy_cycles = main_unit_busy_cycles - 1;
+    end
+    @(posedge clk);
+  end
+  while(ready_o !== 1'b1) begin
+    @(negedge clk);
+    if(main_unit_busy_cycles >= 0) begin
+      ready_o = 1;
+      main_unit_busy_cycles = 0;
+    end else begin
+      main_unit_busy_cycles = main_unit_busy_cycles - 1;
+    end
+  end
 endtask
 
 task wait_till_ready;
-  while(~ready_i) @(posedge clk);
+  while(ready_i !== 1'b1) @(posedge clk);
 endtask
 
-always #5 clk = ~clk;
-
 initial begin
-  $dumpfile("multiplier.fst");
-  $dumpvars(0, UUT);
   a = 0;
   b = 0;
   clk = 0;
   rst = 1;
   valid_i = 0;
   ready_o = 1;
+  
+  $dumpfile("multiplier.fst");
+  $dumpvars;
 
-  repeat(2) @(posedge clk);
+  repeat(2) @(negedge clk);
   rst = 0;
   
   $display("Random testing.");
-  for (int i = 0; i < 1000; i = i + 1) begin : random_testing
+  for (int i = 0; i < N_RANDOM_TESTS; i = i + 1) begin : random_testing
+    $display("Random test %d/%d", i+1, N_RANDOM_TESTS);
     wait_till_ready();
     @(negedge clk);
     valid_i = 1;
@@ -63,11 +87,7 @@ initial begin
     @(negedge clk); 
     valid_i = 0;
     wait_till_done();
-
-    if (errors > 10) begin
-      $display(" Too many errors found, quitting " );
-      i = 100000000;
-    end
+    
   end
   if (errors !== 0) begin
     $display("---------------------------------------------------------------");
@@ -82,9 +102,11 @@ initial begin
   $finish;
 end
 
+always #5 clk = ~clk;
+
 // Note: the triple === (corresponding !==) check 4-state (e.g. 0,1,x,z) values.
 //       It's best practice to use these for checkers!
-always @(a,b, valid_o) begin
+always @(posedge(valid_o)) begin
   if(valid_o) begin 
     print_io;
     assert(product === correct_product) else begin
@@ -92,6 +114,17 @@ always @(a,b, valid_o) begin
       errors = errors + 1;
     end
   end
+  if (errors > 10) begin
+    $display(" Too many errors found, quitting " );
+    $finish;
+  end
+end
+
+// An overal timeout:
+initial begin
+  repeat (MAX_CYCLES) @(negedge clk);
+  $display("TIMEOUT: Exceeded %d iterations, quitting.", MAX_CYCLES);
+  $finish;
 end
 
 endmodule
