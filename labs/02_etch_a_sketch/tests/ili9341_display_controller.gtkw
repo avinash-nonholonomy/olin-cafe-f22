@@ -1,0 +1,89 @@
+[*]
+[*] GTKWave Analyzer v3.3.106 (w)1999-2020 BSI
+[*] Mon Nov  8 02:03:15 2021
+[*]
+[dumpfile] "(null)"
+[savefile] "/home/avinash/src/nonholonomy/fpga-labs/02_etch_a_sketch/tests/ili9341_display_controller.gtkw"
+[timestart] 805000
+[size] 2552 1397
+[pos] -1 -1
+*-20.000000 5535000 5535000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_ili9341_display_controller.
+[treeopen] test_ili9341_display_controller.UUT.
+[sst_width] 291
+[signals_width] 488
+[sst_expanded] 1
+[sst_vpaned_height] 412
+@28
+test_ili9341_display_controller.UUT.rst
+test_ili9341_display_controller.UUT.display_rstb
+test_ili9341_display_controller.UUT.clk
+test_ili9341_display_controller.UUT.hsync
+test_ili9341_display_controller.UUT.vsync
+@29
+test_ili9341_display_controller.UUT.spi_clk
+@28
+test_ili9341_display_controller.UUT.spi_csb
+test_ili9341_display_controller.UUT.data_commandb
+@800022
+test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+@28
+(8)test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+(9)test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+(10)test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+(11)test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+(12)test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+(13)test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+(14)test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+(15)test_ili9341_display_controller.UUT.SPI0.tx_data[15:0]
+@1001200
+-group_end
+@28
+test_ili9341_display_controller.UUT.spi_miso
+test_ili9341_display_controller.UUT.i_ready
+test_ili9341_display_controller.UUT.i_valid
+@22
+test_ili9341_display_controller.UUT.i_data[15:0]
+@c00022
+test_ili9341_display_controller.UUT.current_command[7:0]
+@28
+(0)test_ili9341_display_controller.UUT.current_command[7:0]
+(1)test_ili9341_display_controller.UUT.current_command[7:0]
+(2)test_ili9341_display_controller.UUT.current_command[7:0]
+(3)test_ili9341_display_controller.UUT.current_command[7:0]
+(4)test_ili9341_display_controller.UUT.current_command[7:0]
+(5)test_ili9341_display_controller.UUT.current_command[7:0]
+(6)test_ili9341_display_controller.UUT.current_command[7:0]
+(7)test_ili9341_display_controller.UUT.current_command[7:0]
+@1401200
+-group_end
+@28
+test_ili9341_display_controller.UUT.spi_mode[2:0]
+@8022
+test_ili9341_display_controller.UUT.SPI0.bit_counter[4:0]
+@28
+test_ili9341_display_controller.UUT.spi_mosi
+@200
+-
+-FSM Logic
+@c00024
+test_ili9341_display_controller.UUT.state[2:0]
+@28
+(0)test_ili9341_display_controller.UUT.state[2:0]
+(1)test_ili9341_display_controller.UUT.state[2:0]
+(2)test_ili9341_display_controller.UUT.state[2:0]
+@1401200
+-group_end
+@22
+test_ili9341_display_controller.UUT.current_command[7:0]
+@200
+-Configuration
+@22
+test_ili9341_display_controller.UUT.cfg_bytes_remaining[7:0]
+@24
+test_ili9341_display_controller.UUT.cfg_state[2:0]
+test_ili9341_display_controller.UUT.rom_addr[6:0]
+@22
+test_ili9341_display_controller.UUT.rom_data[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

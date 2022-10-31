@@ -1,0 +1,90 @@
+[*]
+[*] GTKWave Analyzer v3.3.106 (w)1999-2020 BSI
+[*] Wed Nov 10 23:44:25 2021
+[*]
+[dumpfile] "/home/avinash/src/nonholonomy/fpga-labs/02_etch_a_sketch/ft6206_controller.fst"
+[dumpfile_mtime] "Wed Nov 10 23:42:32 2021"
+[dumpfile_size] 10844
+[savefile] "/home/avinash/src/nonholonomy/fpga-labs/02_etch_a_sketch/tests/ft6206_controller.gtkw"
+[timestart] 0
+[size] 2552 1397
+[pos] -1 -1
+*-29.000000 197251000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_ft6206_controller.
+[treeopen] test_ft6206_controller.UUT.
+[sst_width] 291
+[signals_width] 410
+[sst_expanded] 1
+[sst_vpaned_height] 413
+@28
+test_ft6206_controller.UUT.clk
+test_ft6206_controller.UUT.scl
+test_ft6206_controller.UUT.sda
+@200
+-ft6206 controller
+@25
+test_ft6206_controller.UUT.state[4:0]
+@22
+test_ft6206_controller.UUT.state_after_wait[4:0]
+@28
+test_ft6206_controller.UUT.i2c_mode
+test_ft6206_controller.UUT.i_valid
+@22
+test_ft6206_controller.UUT.i_data[7:0]
+@28
+test_ft6206_controller.UUT.o_valid
+@22
+test_ft6206_controller.UUT.o_data[7:0]
+@28
+test_ft6206_controller.UUT.i_ready
+test_ft6206_controller.UUT.o_valid
+@200
+-I2C0
+@28
+test_ft6206_controller.UUT.scl
+test_ft6206_controller.UUT.I2C0.sda
+test_ft6206_controller.UUT.I2C0.sda_oe
+@22
+test_ft6206_controller.UUT.I2C0.bit_counter[3:0]
+test_ft6206_controller.UUT.I2C0.state[3:0]
+@200
+-peripheral (model)
+@22
+test_ft6206_controller.MODEL.state[3:0]
+@28
+test_ft6206_controller.MODEL.sda_oe
+@24
+test_ft6206_controller.MODEL.bit_counter[3:0]
+@28
+test_ft6206_controller.UUT.sda
+@c00022
+test_ft6206_controller.MODEL.i_addr[6:0]
+@28
+(0)test_ft6206_controller.MODEL.i_addr[6:0]
+(1)test_ft6206_controller.MODEL.i_addr[6:0]
+(2)test_ft6206_controller.MODEL.i_addr[6:0]
+(3)test_ft6206_controller.MODEL.i_addr[6:0]
+(4)test_ft6206_controller.MODEL.i_addr[6:0]
+(5)test_ft6206_controller.MODEL.i_addr[6:0]
+(6)test_ft6206_controller.MODEL.i_addr[6:0]
+@1401200
+-group_end
+@c00022
+test_ft6206_controller.MODEL.i_data[7:0]
+@28
+(0)test_ft6206_controller.MODEL.i_data[7:0]
+(1)test_ft6206_controller.MODEL.i_data[7:0]
+(2)test_ft6206_controller.MODEL.i_data[7:0]
+(3)test_ft6206_controller.MODEL.i_data[7:0]
+(4)test_ft6206_controller.MODEL.i_data[7:0]
+(5)test_ft6206_controller.MODEL.i_data[7:0]
+(6)test_ft6206_controller.MODEL.i_data[7:0]
+(7)test_ft6206_controller.MODEL.i_data[7:0]
+@1401200
+-group_end
+@28
+test_ft6206_controller.MODEL.mode
+@200
+-Touch Output
+[pattern_trace] 1
+[pattern_trace] 0

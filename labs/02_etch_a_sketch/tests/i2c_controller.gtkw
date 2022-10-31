@@ -1,0 +1,39 @@
+[*]
+[*] GTKWave Analyzer v3.3.106 (w)1999-2020 BSI
+[*] Mon Nov  8 19:33:54 2021
+[*]
+[dumpfile] "/home/avinash/src/nonholonomy/fpga-labs/02_etch_a_sketch/i2c_controller.fst"
+[dumpfile_mtime] "Mon Nov  8 19:33:40 2021"
+[dumpfile_size] 1700
+[savefile] "/home/avinash/src/nonholonomy/fpga-labs/02_etch_a_sketch/tests/i2c_controller.gtkw"
+[timestart] 0
+[size] 2552 1397
+[pos] -1 -1
+*-26.000000 44649000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_i2c_controller.
+[sst_width] 291
+[signals_width] 282
+[sst_expanded] 1
+[sst_vpaned_height] 413
+@28
+test_i2c_controller.UUT.rst
+test_i2c_controller.UUT.clk
+test_i2c_controller.UUT.mode
+test_i2c_controller.UUT.i_valid
+test_i2c_controller.UUT.i_ready
+@24
+test_i2c_controller.UUT.state[3:0]
+test_i2c_controller.UUT.bit_counter[2:0]
+@28
+test_i2c_controller.UUT.scl
+test_i2c_controller.UUT.sda
+test_i2c_controller.UUT.o_ready
+test_i2c_controller.UUT.o_valid
+@22
+test_i2c_controller.UUT.o_data[7:0]
+@28
+test_i2c_controller.UUT.sda_oe
+@23
+test_i2c_controller.UUT.state[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

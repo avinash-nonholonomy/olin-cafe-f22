@@ -1,0 +1,151 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Thu Oct 27 18:41:57 2022
+[*]
+[dumpfile] "/home/avinash/src/cafe-instructors/labs/02_etch_a_sketch/spi_controller.fst"
+[dumpfile_mtime] "Thu Oct 27 18:41:01 2022"
+[dumpfile_size] 1975
+[savefile] "/home/avinash/src/cafe-instructors/labs/02_etch_a_sketch/tests/spi_controller.gtkw"
+[timestart] 5125000
+[size] 1817 1341
+[pos] -1 -1
+*-21.578060 18409000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_spi_controller.
+[sst_width] 329
+[signals_width] 382
+[sst_expanded] 1
+[sst_vpaned_height] 426
+@28
+test_spi_controller.UUT.rst
+@24
+test_spi_controller.UUT.spi_mode[2:0]
+@28
+test_spi_controller.UUT.clk
+test_spi_controller.UUT.csb
+test_spi_controller.UUT.sclk
+@c00025
+test_spi_controller.UUT.state[2:0]
+@28
+(0)test_spi_controller.UUT.state[2:0]
+(1)test_spi_controller.UUT.state[2:0]
+(2)test_spi_controller.UUT.state[2:0]
+@1401201
+-group_end
+@c00024
+test_spi_controller.UUT.bit_counter[4:0]
+@28
+(0)test_spi_controller.UUT.bit_counter[4:0]
+(1)test_spi_controller.UUT.bit_counter[4:0]
+(2)test_spi_controller.UUT.bit_counter[4:0]
+(3)test_spi_controller.UUT.bit_counter[4:0]
+(4)test_spi_controller.UUT.bit_counter[4:0]
+@1401200
+-group_end
+@200
+-TX Signals
+@28
+test_spi_controller.UUT.sclk
+test_spi_controller.UUT.mosi
+@c00028
+test_spi_controller.UUT.i_data[15:0]
+@28
+(0)test_spi_controller.UUT.i_data[15:0]
+(1)test_spi_controller.UUT.i_data[15:0]
+(2)test_spi_controller.UUT.i_data[15:0]
+(3)test_spi_controller.UUT.i_data[15:0]
+(4)test_spi_controller.UUT.i_data[15:0]
+(5)test_spi_controller.UUT.i_data[15:0]
+(6)test_spi_controller.UUT.i_data[15:0]
+(7)test_spi_controller.UUT.i_data[15:0]
+(8)test_spi_controller.UUT.i_data[15:0]
+(9)test_spi_controller.UUT.i_data[15:0]
+(10)test_spi_controller.UUT.i_data[15:0]
+(11)test_spi_controller.UUT.i_data[15:0]
+(12)test_spi_controller.UUT.i_data[15:0]
+(13)test_spi_controller.UUT.i_data[15:0]
+(14)test_spi_controller.UUT.i_data[15:0]
+(15)test_spi_controller.UUT.i_data[15:0]
+@1401200
+-group_end
+@28
+test_spi_controller.UUT.tx_data[15:0]
+test_spi_controller.UUT.i_ready
+test_spi_controller.UUT.i_valid
+@c00024
+test_spi_controller.UUT.bit_counter[4:0]
+@28
+(0)test_spi_controller.UUT.bit_counter[4:0]
+(1)test_spi_controller.UUT.bit_counter[4:0]
+(2)test_spi_controller.UUT.bit_counter[4:0]
+(3)test_spi_controller.UUT.bit_counter[4:0]
+(4)test_spi_controller.UUT.bit_counter[4:0]
+@1401200
+-group_end
+@200
+-RX Signals
+@28
+test_spi_controller.UUT.miso
+test_spi_controller.UUT.sclk
+@c00022
+test_spi_controller.UUT.rx_data[23:0]
+@28
+(0)test_spi_controller.UUT.rx_data[23:0]
+(1)test_spi_controller.UUT.rx_data[23:0]
+(2)test_spi_controller.UUT.rx_data[23:0]
+(3)test_spi_controller.UUT.rx_data[23:0]
+(4)test_spi_controller.UUT.rx_data[23:0]
+(5)test_spi_controller.UUT.rx_data[23:0]
+(6)test_spi_controller.UUT.rx_data[23:0]
+(7)test_spi_controller.UUT.rx_data[23:0]
+(8)test_spi_controller.UUT.rx_data[23:0]
+(9)test_spi_controller.UUT.rx_data[23:0]
+(10)test_spi_controller.UUT.rx_data[23:0]
+(11)test_spi_controller.UUT.rx_data[23:0]
+(12)test_spi_controller.UUT.rx_data[23:0]
+(13)test_spi_controller.UUT.rx_data[23:0]
+(14)test_spi_controller.UUT.rx_data[23:0]
+(15)test_spi_controller.UUT.rx_data[23:0]
+(16)test_spi_controller.UUT.rx_data[23:0]
+(17)test_spi_controller.UUT.rx_data[23:0]
+(18)test_spi_controller.UUT.rx_data[23:0]
+(19)test_spi_controller.UUT.rx_data[23:0]
+(20)test_spi_controller.UUT.rx_data[23:0]
+(21)test_spi_controller.UUT.rx_data[23:0]
+(22)test_spi_controller.UUT.rx_data[23:0]
+(23)test_spi_controller.UUT.rx_data[23:0]
+@1401200
+-group_end
+@28
+test_spi_controller.UUT.o_ready
+test_spi_controller.UUT.o_valid
+@c00024
+test_spi_controller.UUT.o_data[23:0]
+@28
+(0)test_spi_controller.UUT.o_data[23:0]
+(1)test_spi_controller.UUT.o_data[23:0]
+(2)test_spi_controller.UUT.o_data[23:0]
+(3)test_spi_controller.UUT.o_data[23:0]
+(4)test_spi_controller.UUT.o_data[23:0]
+(5)test_spi_controller.UUT.o_data[23:0]
+(6)test_spi_controller.UUT.o_data[23:0]
+(7)test_spi_controller.UUT.o_data[23:0]
+(8)test_spi_controller.UUT.o_data[23:0]
+(9)test_spi_controller.UUT.o_data[23:0]
+(10)test_spi_controller.UUT.o_data[23:0]
+(11)test_spi_controller.UUT.o_data[23:0]
+(12)test_spi_controller.UUT.o_data[23:0]
+(13)test_spi_controller.UUT.o_data[23:0]
+(14)test_spi_controller.UUT.o_data[23:0]
+(15)test_spi_controller.UUT.o_data[23:0]
+(16)test_spi_controller.UUT.o_data[23:0]
+(17)test_spi_controller.UUT.o_data[23:0]
+(18)test_spi_controller.UUT.o_data[23:0]
+(19)test_spi_controller.UUT.o_data[23:0]
+(20)test_spi_controller.UUT.o_data[23:0]
+(21)test_spi_controller.UUT.o_data[23:0]
+(22)test_spi_controller.UUT.o_data[23:0]
+(23)test_spi_controller.UUT.o_data[23:0]
+@1401200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
