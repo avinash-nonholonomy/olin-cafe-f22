@@ -52,7 +52,7 @@ All of this has been implemented in `main.sv` so you shouldn't have to make any 
 
 ## Wiring the display:
 If you are clever you can wire the display like so:
-![Breadboard Example](docs/breadboard_example.jpg)
+![Breadboard Example](docs/breadboard-example.jpg)
 You then will only need to wire the GND pins to GND and the Vin pin to VU. The `main.xdc` pin assignment file has this layout commented out - check each pin to make sure it lines up before powering your board.
 
 There are two tracks for this portion - either working with the (a) display XOR (b) the touchscreen. For both tracks the high level FSMs and logic have been done for you since they are a little complicated! Your responsibility is to implement a module that can implement either SPI XOR i2c to talk to the display or touch screen. Both tracks deal with serialization, but the i2c option is slightly more complicated (since you need to both write and read data).  
