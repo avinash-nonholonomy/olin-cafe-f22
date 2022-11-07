@@ -42,3 +42,50 @@ memories/ili9341_init.memh: generate_memories.py
 memories/fibonacci.memh: generate_memories.py
 	./generate_memories.py --memory fibonacci --out memories/fibonacci.memh
 
+test_block_rom : memories/fibonacci.memh hdl/block_rom.sv tests/test_block_rom.sv
+	${IVERILOG} hdl/block_rom.sv tests/test_block_rom.sv -o test_block_rom.bin && ${VVP} test_block_rom.bin ${VVP_POST}
+
+test_ili9341_display_controller : tests/test_ili9341_display_controller.sv $(ILI9341_SRCS) memories/ili9341_init.memh
+	${IVERILOG} ${ILI9341_SRCS} tests/test_ili9341_display_controller.sv  -o test_ili9341_display_controller.bin && ${VVP} test_ili9341_display_controller.bin ${VVP_POST}
+waves_ili9341_display_controller: test_ili9341_display_controller
+	gtkwave ili9341_display_controller.fst -a tests/ili9341_display_controller.gtkw
+
+test_ft6206_controller : tests/test_ft6206_controller.sv tests/ft6206_model.sv $(FT6206_SRCS)
+	${IVERILOG} ${FT6206_SRCS} tests/test_ft6206_controller.sv tests/ft6206_model.sv -o test_ft6206.bin && ${VVP} test_ft6206.bin ${VVP_POST}
+waves_ft6206_controller: test_ft6206_controller
+	gtkwave ft6206_controller.fst -a tests/ft6206_controller.gtkw
+
+test_main: tests/test_main.sv ${MAIN_SRCS} memories/ili9341_init.memh tests/ft6206_model.sv tests/touch_generator.sv
+	@echo "This might take a while, we're testing a lot of clock cycles!"
+	${IVERILOG} tests/test_main.sv tests/ft6206_model.sv tests/touch_generator.sv ${MAIN_SRCS} -o test_main.bin && ${VVP} test_main.bin ${VVP_POST}
+
+main.bit: $(MAIN_SRCS) $(MAIN_MEMORIES) memories/ili9341_init.memh build.tcl main.xdc
+	@echo "########################################"
+	@echo "#### Building FPGA bitstream        ####"
+	@echo "########################################"
+	${VIVADO} build.tcl
+
+program_fpga_vivado: main.bit build.tcl program.tcl
+	@echo "########################################"
+	@echo "#### Programming FPGA (Vivado)      ####"
+	@echo "########################################"
+	${VIVADO} program.tcl
+
+program_fpga_digilent: main.bit build.tcl
+	@echo "########################################"
+	@echo "#### Programming FPGA (Digilent)    ####"
+	@echo "########################################"
+	djtgcfg enum
+	djtgcfg prog -d CmodA7 -i 0 -f main.bit
+
+lint: hdl/*.sv
+	verilator --lint-only -I./hdl -I./tests $^
+
+# Call this to clean up all your generated files
+clean:
+	rm -f *.bin *.vcd *.fst vivado*.log *.jou vivado*.str *.log *.checkpoint *.bit *.html *.xml *.out
+	rm -rf .Xil
+
+# Call this to generate your submission zip file.
+submission:
+	zip submission.zip Makefile hdl/*.sv README.md docs/* *.tcl *.xdc tests/*.sv tests/*.gtkw *.pdf

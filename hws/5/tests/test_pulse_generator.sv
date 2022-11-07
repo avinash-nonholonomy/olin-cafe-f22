@@ -5,7 +5,7 @@ module test_pulse_generator;
 parameter CLK_HZ = 12_000_000;
 parameter CLK_PERIOD_NS = (1_000_000_000/CLK_HZ); // Approximation.
 parameter PERIOD_US = 10; 
-parameter CLK_TICKS = CLK_HZ*PERIOD_US/1_000_000;
+parameter CLK_TICKS = 6; // CLK_HZ*PERIOD_US/1_000_000;
 
 logic clk, rst, ena;
 logic [$clog2(CLK_TICKS)-1:0] ticks;
