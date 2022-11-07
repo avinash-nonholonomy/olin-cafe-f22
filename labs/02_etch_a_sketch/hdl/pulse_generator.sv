@@ -12,5 +12,31 @@ output logic out;
 logic [N-1:0] counter;
 logic counter_comparator;
 
+logic [N-1:0] counter;
+logic counter_comparator;
+
+always_comb begin : comparing_logic
+  counter_comparator = (counter >= ticks);
+end
+
+always_ff @(posedge clk) begin : pulse_generator
+// reset condition
+  if (rst) begin 
+    counter <= 0;
+  end
+// ena condition
+  else if (ena) begin
+    if (counter_comparator) begin
+      counter <= 0;
+    end
+    else begin 
+      counter <= counter + 1;
+    end
+  end
+end
+
+always_comb begin : tick_logic // creating pulses until counter has passed until # of ticks
+  out = counter_comparator & ena;
+end
 
 endmodule
