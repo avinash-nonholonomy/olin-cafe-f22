@@ -63,6 +63,8 @@ Writing sequential testbenches is difficult, so the tests for this are already p
 ## 2a) Display Controller - Sending Serialized Data over SPI
 Your goal for this section is to finish implementing `spi_controller.sv`, and to read through `ili9341_display_controller.sv` and understand it enough to change the test pattern. NOTE - you only need to implement the `WRITE_8` and `WRITE_16` modes! 
 
+You should run `make test_ili9341_display_controller` before trying to synthesize - it will catch any odd errors. 
+
 Once you have it working, make sure that the ILI9341 display controller in main.sv has the test pattern enabled: `.enable_test_pattern(1'b1)`. If your SPI controller is working you should see a test pattern on the display. 
 
 Finally, edit `ili9341_display_controller.sv`'s `display_color_logic` section to change the test pattern in any way. Bonus - make the test pattern change over time by adding an FSM of some sort!
