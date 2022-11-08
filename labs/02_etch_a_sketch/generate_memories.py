@@ -138,3 +138,42 @@ def generate_fibonacci_rom(fn="memories/fibonacci.memh"):
             f.write("%08x\n" % fibonacci(i))
     print(f"Wrote 48 bytes to {fn}.")
 
+# SOLUTION START
+def generate_brush_rom(r1=6, r2=8, fg=ILI9341_COLORS['ORANGE'], bg=ILI9341_COLORS['BLACK'], fn="memories/brush.memh"):
+    print(f"Writing a 'brush' pattern to a ROM with r1 {r1} pixels.")
+    width=2*r2 - 1
+    length = 0
+    with open(fn, 'w') as f:
+        for x in range(-(r2-1), r2):
+            for y in range(-(r2-1), r2):
+                color = bg
+                print(f"(x,y) -> r ({x}, {y}) -> {(x**2 + y**2)}")
+                if ((x**2 + y**2) <= r1**2):
+                    color = fg
+                f.write("%08x\n"%color)
+                length += 1
+    print(f"Wrote 16bit x {length} rows to {fn}")
+# SOLUTION STOP
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--memory', choices=['ili9341', 'fibonacci', 'brush'])
+    parser.add_argument('--out')
+
+    args = parser.parse_args()
+    if not args.out:
+        return
+
+    if args.memory == 'ili9341':
+        generate_ili9341_rom(fn=args.out)
+    elif args.memory == 'fibonacci':
+        generate_fibonacci_rom(fn=args.out)
+# SOLUTION START
+    elif args.memory == 'brush':
+        generate_brush_rom(fn=args.out)
+# SOLUTION STOP
+
+
+if __name__ == "__main__":
+    main()
