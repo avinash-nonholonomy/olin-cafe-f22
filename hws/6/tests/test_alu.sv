@@ -38,7 +38,7 @@ initial begin
   a = 0; b = 0; control = control.first;
   errors = 0;
   // Edit the alu_testcases.memh file to add more test cases!
-  $readmemh("alu_testcases.memh", test_vector);
+  $readmemh("tests/alu_testcases.memh", test_vector);
   loop = 1;
   while (loop) begin
     $display("Testing alu control = %b (%s)", control, alu_control_name(control));
