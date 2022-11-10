@@ -89,3 +89,15 @@ clean:
 # Call this to generate your submission zip file.
 submission:
 	zip submission.zip Makefile hdl/*.sv README.md docs/* *.tcl *.xdc tests/*.sv tests/*.gtkw *.pdf
+
+lint: hdl/*.sv
+	verilator --lint-only -I./hdl -I./tests $^
+
+# Call this to clean up all your generated files
+clean:
+	rm -f *.bin *.vcd *.fst vivado*.log *.jou vivado*.str *.log *.checkpoint *.bit *.html *.xml *.out
+	rm -rf .Xil
+
+# Call this to generate your submission zip file.
+submission:
+	zip submission.zip Makefile hdl/*.sv README.md docs/* *.tcl *.xdc tests/*.sv tests/*.gtkw *.pdf
