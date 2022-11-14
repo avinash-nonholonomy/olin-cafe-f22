@@ -1,0 +1,14 @@
+`ifndef MEMMAP_H
+`define MEMMAP_H
+
+`define MEM_INST_START 32'h0000_0000
+`define MEM_INST_END   32'h0000_ffff
+`define MEM_MMR_LEDS   32'h0001_0000
+`define MEM_GPIO_MODE  32'h0001_0004
+`define MEM_GPIO_STATE 32'h0001_0008
+`define MEM_VRAM_START 32'h0002_0000
+`define MEM_VRAM_END   32'h0003_ffff
+`define MEM_DATA_START 32'h0004_0000
+`define MEM_DATA_END   32'h0005_ffff
+
+`endif // MEMMAP_H

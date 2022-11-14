@@ -1,0 +1,180 @@
+[*]
+[*] GTKWave Analyzer v3.3.106 (w)1999-2020 BSI
+[*] Fri Nov  4 19:52:36 2022
+[*]
+[dumpfile] "/home/avinash/src/cafe-instructors/labs/03_risc-v-cpu/rv32i_system.fst"
+[dumpfile_mtime] "Fri Nov  4 19:50:44 2022"
+[dumpfile_size] 749777
+[savefile] "/home/avinash/src/cafe-instructors/labs/03_risc-v-cpu/tests/rv32i_system.gtkw"
+[timestart] 0
+[size] 3798 2281
+[pos] -1 -1
+*-19.080782 135000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_rv32i_system.
+[treeopen] test_rv32i_system.UUT.
+[treeopen] test_rv32i_system.UUT.CORE.
+[treeopen] test_rv32i_system.UUT.MMU.
+[sst_width] 459
+[signals_width] 466
+[sst_expanded] 1
+[sst_vpaned_height] 755
+@28
+test_rv32i_system.UUT.CORE.rst
+test_rv32i_system.UUT.CORE.clk
+@24
+test_rv32i_system.UUT.CORE.state[3:0]
+@28
+test_rv32i_system.UUT.CORE.PC_ena
+@22
+test_rv32i_system.UUT.CORE.PC[31:0]
+test_rv32i_system.UUT.CORE.IR[31:0]
+@28
+test_rv32i_system.UUT.CORE.op[6:0]
+@c00022
+test_rv32i_system.UUT.CORE.result[31:0]
+@28
+(0)test_rv32i_system.UUT.CORE.result[31:0]
+(1)test_rv32i_system.UUT.CORE.result[31:0]
+(2)test_rv32i_system.UUT.CORE.result[31:0]
+(3)test_rv32i_system.UUT.CORE.result[31:0]
+(4)test_rv32i_system.UUT.CORE.result[31:0]
+(5)test_rv32i_system.UUT.CORE.result[31:0]
+(6)test_rv32i_system.UUT.CORE.result[31:0]
+(7)test_rv32i_system.UUT.CORE.result[31:0]
+(8)test_rv32i_system.UUT.CORE.result[31:0]
+(9)test_rv32i_system.UUT.CORE.result[31:0]
+(10)test_rv32i_system.UUT.CORE.result[31:0]
+(11)test_rv32i_system.UUT.CORE.result[31:0]
+(12)test_rv32i_system.UUT.CORE.result[31:0]
+(13)test_rv32i_system.UUT.CORE.result[31:0]
+(14)test_rv32i_system.UUT.CORE.result[31:0]
+(15)test_rv32i_system.UUT.CORE.result[31:0]
+(16)test_rv32i_system.UUT.CORE.result[31:0]
+(17)test_rv32i_system.UUT.CORE.result[31:0]
+(18)test_rv32i_system.UUT.CORE.result[31:0]
+(19)test_rv32i_system.UUT.CORE.result[31:0]
+(20)test_rv32i_system.UUT.CORE.result[31:0]
+(21)test_rv32i_system.UUT.CORE.result[31:0]
+(22)test_rv32i_system.UUT.CORE.result[31:0]
+(23)test_rv32i_system.UUT.CORE.result[31:0]
+(24)test_rv32i_system.UUT.CORE.result[31:0]
+(25)test_rv32i_system.UUT.CORE.result[31:0]
+(26)test_rv32i_system.UUT.CORE.result[31:0]
+(27)test_rv32i_system.UUT.CORE.result[31:0]
+(28)test_rv32i_system.UUT.CORE.result[31:0]
+(29)test_rv32i_system.UUT.CORE.result[31:0]
+(30)test_rv32i_system.UUT.CORE.result[31:0]
+(31)test_rv32i_system.UUT.CORE.result[31:0]
+@1401200
+-group_end
+@22
+test_rv32i_system.UUT.CORE.alu_last[31:0]
+@200
+-ALU
+@22
+test_rv32i_system.UUT.CORE.src_a[31:0]
+test_rv32i_system.UUT.CORE.src_b[31:0]
+test_rv32i_system.UUT.CORE.alu_result[31:0]
+@200
+-Register File
+@22
+test_rv32i_system.UUT.CORE.rs1[4:0]
+test_rv32i_system.UUT.CORE.rs2[4:0]
+test_rv32i_system.UUT.CORE.reg_A[31:0]
+test_rv32i_system.UUT.CORE.reg_B[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x00[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x01[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x02[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x03[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x04[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x05[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x06[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x07[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x08[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x09[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x10[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x11[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x12[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x13[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x14[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x15[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x16[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x17[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x18[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x19[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x20[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x21[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x22[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x23[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x24[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x25[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x26[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x27[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x28[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x29[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x30[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.x31[31:0]
+@200
+-MMU
+@22
+test_rv32i_system.UUT.MMU.core_addr[31:0]
+@28
+test_rv32i_system.UUT.MMU.core_wr_ena
+test_rv32i_system.UUT.MMU.inst_wr_ena
+test_rv32i_system.UUT.MMU.data_wr_ena
+test_rv32i_system.UUT.MMU.vram_wr_ena
+test_rv32i_system.UUT.MMU.led_mmr_wr_ena
+@c00023
+test_rv32i_system.UUT.MMU.led_mmr[31:0]
+@28
+(0)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(1)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(2)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(3)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(4)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(5)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(6)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(7)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(8)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(9)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(10)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(11)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(12)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(13)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(14)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(15)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(16)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(17)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(18)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(19)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(20)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(21)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(22)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(23)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(24)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(25)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(26)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(27)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(28)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(29)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(30)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+(31)test_rv32i_system.UUT.MMU.led_mmr[31:0]
+@1401203
+-group_end
+@800028
+test_rv32i_system.UUT.leds[1:0]
+@28
+(0)test_rv32i_system.UUT.leds[1:0]
+(1)test_rv32i_system.UUT.leds[1:0]
+@1001200
+-group_end
+@800028
+test_rv32i_system.UUT.rgb[2:0]
+@28
+(0)test_rv32i_system.UUT.rgb[2:0]
+(1)test_rv32i_system.UUT.rgb[2:0]
+(2)test_rv32i_system.UUT.rgb[2:0]
+@1001200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
