@@ -30,7 +30,10 @@ parameter VRAM_W = 16;
 input wire sysclk;
 wire clk;
 input wire [1:0] buttons;
-logic rst; always_comb rst = buttons[0]; // Use button 0 as a reset signal.
+wire rst; 
+
+//always_comb rst = buttons[0]; // Use button 0 as a reset signal.
+assign rst = buttons[0];
 output logic [1:0] leds;
 output logic [2:0] rgb;
 output logic [7:0] pmod;  always_comb pmod = {6'b0, sysclk, clk}; // You can use the pmod port for debugging, add more signals here if you want to scope them.
@@ -149,7 +152,7 @@ ili9341_display_controller ILI9341(
   .vram_rd_addr(vram_rd_addr),
   .vram_rd_data(vram_rd_data),
   // !!! NOTE - change enable_test_pattern to zero once you start implementing the video ram !!!
-  .enable_test_pattern(1'b1) 
+  .enable_test_pattern(1'b0) 
 );
 
 /* ------------------------------------------------------------------------- */
@@ -188,8 +191,8 @@ enum logic [1:0] {S_IDLE, S_CLEAR, S_WRITE, S_ERROR} state;
 always_ff @(posedge clk) begin : vram_controller_fsm
   if(rst) begin
     state <= S_CLEAR; // should it be clear or idle
-    vram_clear_counter <= DISPLAY_WIDTH * DISPLAY_HEIGHT; // set as number of pixels in display
-    rst <= 0;   // set reset as 0
+    vram_clear_counter <= VRAM_L; //DISPLAY_WIDTH * DISPLAY_HEIGHT; // set as number of pixels in display
+    //rst <= 0;   // set reset as 0
   end else begin
     case(state)
       S_IDLE : begin
@@ -199,22 +202,26 @@ always_ff @(posedge clk) begin : vram_controller_fsm
       end
       S_CLEAR : begin
         //default : vram_clear_counter <= 0
-        vram_wr_ena <= 0;
-        if(vram_clear_counter != 0) begin
+        if(vram_clear_counter != 1) begin
+          vram_wr_ena = 1;
           vram_wr_addr <= vram_clear_counter;
           vram_wr_data <= BLACK;
           vram_clear_counter <= vram_clear_counter - 1;
         end else begin
           state <= S_IDLE;
+          vram_wr_ena <= 0;
         end
       end
       S_WRITE : begin
         vram_wr_ena <= touch0.valid;  // enable writing
-        vram_wr_addr <= touch0.x * DISPLAY_WIDTH + touch0.y;
+        vram_wr_addr <= touch0.y * DISPLAY_WIDTH + touch0.x;
         vram_wr_data <= BLUE;
       end
 
-      default : state <= S_ERROR
+      default : state <= S_ERROR;    // should default to S_ERROR
+
     endcase
+  end
+end
 
 endmodule

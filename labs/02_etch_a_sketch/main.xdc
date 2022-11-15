@@ -30,21 +30,21 @@ set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports { pmod[7
 
 # ILI9341 Display Controller + FT6206 Capacitive Controller - Recommended Wiring
 # Uncomment if this matches how you wired the display!
-# set_property -dict { PACKAGE_PIN W3    IOSTANDARD LVCMOS33 } [get_ports { interface_mode[0] }]; #IO_L6N_T0_VREF_34 Sch=pio[34]
-# set_property -dict { PACKAGE_PIN V3    IOSTANDARD LVCMOS33 } [get_ports { interface_mode[1] }]; #IO_L6P_T0_34 Sch=pio[35]
-# set_property -dict { PACKAGE_PIN W5    IOSTANDARD LVCMOS33 } [get_ports { interface_mode[2] }]; #IO_L12P_T1_MRCC_34 Sch=pio[36]
-# set_property -dict { PACKAGE_PIN V4    IOSTANDARD LVCMOS33 } [get_ports { interface_mode[3] }]; #IO_L11N_T1_SRCC_34 Sch=pio[37]
-# set_property -dict { PACKAGE_PIN U4    IOSTANDARD LVCMOS33 } [get_ports { touch_i2c_scl }]; #IO_L11P_T1_SRCC_34 Sch=pio[38]
-# set_property -dict { PACKAGE_PIN V5    IOSTANDARD LVCMOS33 } [get_ports { touch_i2c_sda }]; #IO_L16N_T2_34 Sch=pio[39]
-# set_property -dict { PACKAGE_PIN W4    IOSTANDARD LVCMOS33 } [get_ports { touch_irq }]; #IO_L12N_T1_MRCC_34 Sch=pio[40]
-# # set_property -dict { PACKAGE_PIN U5    IOSTANDARD LVCMOS33 } [get_ports { pio[41] }]; #IO_L16P_T2_34 Sch=pio[41] #skipping it, it's the gnd pin
-# set_property -dict { PACKAGE_PIN U2    IOSTANDARD LVCMOS33 } [get_ports { backlight }]; #IO_L9N_T1_DQS_34 Sch=pio[42]
-# set_property -dict { PACKAGE_PIN W6    IOSTANDARD LVCMOS33 } [get_ports { display_rstb }]; #IO_L13N_T2_MRCC_34 Sch=pio[43]
-# set_property -dict { PACKAGE_PIN U3    IOSTANDARD LVCMOS33 } [get_ports { data_commandb }]; #IO_L9P_T1_DQS_34 Sch=pio[44]
-# set_property -dict { PACKAGE_PIN U7    IOSTANDARD LVCMOS33 } [get_ports { display_csb }]; #IO_L19P_T3_34 Sch=pio[45]
-# set_property -dict { PACKAGE_PIN W7    IOSTANDARD LVCMOS33 } [get_ports { spi_mosi }]; #IO_L13P_T2_MRCC_34 Sch=pio[46]
-# set_property -dict { PACKAGE_PIN U8    IOSTANDARD LVCMOS33 } [get_ports { spi_miso }]; #IO_L14P_T2_SRCC_34 Sch=pio[47]
-# set_property -dict { PACKAGE_PIN V8    IOSTANDARD LVCMOS33 } [get_ports { spi_clk }]; #IO_L14N_T2_SRCC_34 Sch=pio[48]
+set_property -dict { PACKAGE_PIN W3    IOSTANDARD LVCMOS33 } [get_ports { interface_mode[0] }]; #IO_L6N_T0_VREF_34 Sch=pio[34]
+set_property -dict { PACKAGE_PIN V3    IOSTANDARD LVCMOS33 } [get_ports { interface_mode[1] }]; #IO_L6P_T0_34 Sch=pio[35]
+set_property -dict { PACKAGE_PIN W5    IOSTANDARD LVCMOS33 } [get_ports { interface_mode[2] }]; #IO_L12P_T1_MRCC_34 Sch=pio[36]
+set_property -dict { PACKAGE_PIN V4    IOSTANDARD LVCMOS33 } [get_ports { interface_mode[3] }]; #IO_L11N_T1_SRCC_34 Sch=pio[37]
+set_property -dict { PACKAGE_PIN U4    IOSTANDARD LVCMOS33 } [get_ports { touch_i2c_scl }]; #IO_L11P_T1_SRCC_34 Sch=pio[38]
+set_property -dict { PACKAGE_PIN V5    IOSTANDARD LVCMOS33 } [get_ports { touch_i2c_sda }]; #IO_L16N_T2_34 Sch=pio[39]
+set_property -dict { PACKAGE_PIN W4    IOSTANDARD LVCMOS33 } [get_ports { touch_irq }]; #IO_L12N_T1_MRCC_34 Sch=pio[40]
+# set_property -dict { PACKAGE_PIN U5    IOSTANDARD LVCMOS33 } [get_ports { pio[41] }]; #IO_L16P_T2_34 Sch=pio[41] #skipping it, it's the gnd pin
+set_property -dict { PACKAGE_PIN U2    IOSTANDARD LVCMOS33 } [get_ports { backlight }]; #IO_L9N_T1_DQS_34 Sch=pio[42]
+set_property -dict { PACKAGE_PIN W6    IOSTANDARD LVCMOS33 } [get_ports { display_rstb }]; #IO_L13N_T2_MRCC_34 Sch=pio[43]
+set_property -dict { PACKAGE_PIN U3    IOSTANDARD LVCMOS33 } [get_ports { data_commandb }]; #IO_L9P_T1_DQS_34 Sch=pio[44]
+set_property -dict { PACKAGE_PIN U7    IOSTANDARD LVCMOS33 } [get_ports { display_csb }]; #IO_L19P_T3_34 Sch=pio[45]
+set_property -dict { PACKAGE_PIN W7    IOSTANDARD LVCMOS33 } [get_ports { spi_mosi }]; #IO_L13P_T2_MRCC_34 Sch=pio[46]
+set_property -dict { PACKAGE_PIN U8    IOSTANDARD LVCMOS33 } [get_ports { spi_miso }]; #IO_L14P_T2_SRCC_34 Sch=pio[47]
+set_property -dict { PACKAGE_PIN V8    IOSTANDARD LVCMOS33 } [get_ports { spi_clk }]; #IO_L14N_T2_SRCC_34 Sch=pio[48]
 
 
 ## GPIO Pins
