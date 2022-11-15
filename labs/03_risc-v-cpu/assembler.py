@@ -5,7 +5,13 @@
 
 """
 Psuedo-instructions to eventually support:
-    - j label -> jal x0, label    
+    - j label -> jal x0, label
+    - jr ra jalr zero, ra, 0
+    - mv x1, x2 -> addi x1, x2, 0
+    - not x1, x2 -> xori x1, x2, -1
+    - 
+
+    -
 """
 
 import argparse
@@ -44,6 +50,41 @@ class AssemblyProgram:
         parsed["line_number"] = self.line_number
         parsed["instruction"] = match.group(1)
         parsed["args"] = [x.strip() for x in match.group(2).split(",")]
+
+        # Handle psuedo-instructions.
+        if parsed["instruction"] == "nop":
+            parsed["instruction"] = "addi"
+            parsed["args"] = ["x0", "x0", "0"]
+        if parsed["instruction"] == "j":
+            parsed["instruction"] = "jal"
+            parsed["args"].insert(0, "x0")
+        if parsed["instruction"] == "jr":
+            parsed["instruction"] = "jalr"
+            parsed["args"].insert(0, "x0")
+            parsed["args"].append("0")
+        if parsed["instruction"] == "mv":
+            parsed["instruction"] = "addi"
+            parsed["args"].append("0")
+        if parsed["instruction"] == "not":
+            parsed["instruction"] = "xori"
+            parsed["args"].append("-1")
+        if parsed["instruction"] == "li":
+            raise NotImplemented("li is not supported")
+        if parsed["instruction"] == "bgt":
+            parsed["instruction"] = "blt"
+            parsed["args"] = [
+                parsed["args"][1],
+                parsed["args"][0],
+                parsed["args"][2],
+            ]
+        if parsed["instruction"] == "bgez":
+            parsed["instruction"] = "bge"
+            parsed["args"].insert(1, "x0")
+        if parsed["instruction"] == "call":
+            raise NotImplemented("call is not supported")
+        if parsed["instruction"] == "ret":
+            parsed["insruction"] = "jalr"
+            parsed["args"] = ["x0", "ra", "0"]
         self.address += 4
         self.parsed_lines.append(parsed)
         return 0
@@ -52,14 +93,6 @@ class AssemblyProgram:
         output = []
         address = 0
         for line in self.parsed_lines:
-            if line["instruction"] == "nop":
-                # Psuedo-instruction. nop is add 0 to 0 into 0 by spec:
-                line["instruction"] = "addi"
-                line["args"] = ["x0", "x0", "0"]
-            if line["instruction"] == "j":
-                # Psuedo-instruction. equivalent to: jal x0, label
-                line["instruction"] = "jal"
-                line["args"].insert(0, "x0")
             try:
                 bits = rv32i.line_to_bits(
                     line, labels=self.labels, address=address

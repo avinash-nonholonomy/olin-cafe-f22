@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-IVERILOG=iverilog -g2012 -Wall -y./hdl -y./tests -Y.sv -I./hdl
+IVERILOG=iverilog -g2012 -Wall -Wno-sensitivity-entire-vector -Wno-sensitivity-entire-array -y./hdl -y./tests -Y.sv -I./hdl
 VVP=vvp
 VVP_POST=-fst
 VIVADO=vivado -mode batch -source
@@ -64,11 +64,11 @@ lint_all: hdl/*.sv
 
 # Call this to clean up all your generated files
 clean:
-	rm -f *.bin *.vcd *.fst vivado*.log *.jou vivado*.str *.log *.checkpoint *.bit *.html *.xml
+	rm -f *.bin *.vcd *.fst vivado*.log *.jou vivado*.str *.log *.checkpoint *.bit *.html *.xml *.out
 	rm -rf .Xil
 	rm -rf __pycache__
 	rm asm/*.memh
 
 # Call this to generate your submission zip file.
 submission:
-	zip submission.zip Makefile *.sv README.md docs/* *.tcl *.xdc tests/*.sv *.pdf
+	zip submission.zip Makefile hdl/*.sv README.md docs/* *.tcl *.xdc tests/*.sv *.pdf

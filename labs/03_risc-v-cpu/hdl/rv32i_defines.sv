@@ -1,13 +1,6 @@
 `ifndef RV32I_DEFINES
 `define RV32I_DEFINES
 
-// Memory Map (based on Fig. 6.31 in H&H)
-`define MEM_MAP_TEXT_START    32'h00010000
-`define MEM_MAP_GLOBALS_START 32'h10000000
-`define MEM_MAP_HEAP_START    32'h10001000
-`define MEM_MAP_STACK_TOP     32'hBFFFFFF0
-`define MEM_MAP_OS_START      32'hC0000000
-
 // addi x0, x0, 0 aka NOP (no operation)
 `define RV32_NOP 32'h0000_0013 
 
