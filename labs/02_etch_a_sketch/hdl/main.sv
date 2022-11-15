@@ -183,4 +183,38 @@ block_ram #(.W(VRAM_W), .L(VRAM_L)) VRAM(
 );
 // Add your vram control FSM here:
 
+enum logic [1:0] {S_IDLE, S_CLEAR, S_WRITE, S_ERROR} state;
+
+always_ff @(posedge clk) begin : vram_controller_fsm
+  if(rst) begin
+    state <= S_CLEAR; // should it be clear or idle
+    vram_clear_counter <= DISPLAY_WIDTH * DISPLAY_HEIGHT; // set as number of pixels in display
+    rst <= 0;   // set reset as 0
+  end else begin
+    case(state)
+      S_IDLE : begin
+        if(touch0.valid == 1) begin   // if touch registered, enter write state
+          state <= S_WRITE;
+        end
+      end
+      S_CLEAR : begin
+        //default : vram_clear_counter <= 0
+        vram_wr_ena <= 0;
+        if(vram_clear_counter != 0) begin
+          vram_wr_addr <= vram_clear_counter;
+          vram_wr_data <= BLACK;
+          vram_clear_counter <= vram_clear_counter - 1;
+        end else begin
+          state <= S_IDLE;
+        end
+      end
+      S_WRITE : begin
+        vram_wr_ena <= touch0.valid;  // enable writing
+        vram_wr_addr <= touch0.x * DISPLAY_WIDTH + touch0.y;
+        vram_wr_data <= BLUE;
+      end
+
+      default : state <= S_ERROR
+    endcase
+
 endmodule
