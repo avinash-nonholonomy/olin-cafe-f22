@@ -1,0 +1,142 @@
+[*]
+[*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
+[*] Mon Nov 28 22:45:57 2022
+[*]
+[dumpfile] "/home/avinash/src/cafe-instructors/labs/03_risc-v-cpu/rv32i_system.fst"
+[dumpfile_mtime] "Mon Nov 28 22:44:56 2022"
+[dumpfile_size] 9200
+[savefile] "/home/avinash/src/cafe-instructors/labs/03_risc-v-cpu/tests/rv32i_system.gtkw"
+[timestart] 0
+[size] 2357 2216
+[pos] -1 -1
+*-16.771574 775000 775000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_rv32i_system.
+[treeopen] test_rv32i_system.UUT.
+[treeopen] test_rv32i_system.UUT.CORE.
+[treeopen] test_rv32i_system.UUT.MMU.
+[sst_width] 508
+[signals_width] 618
+[sst_expanded] 1
+[sst_vpaned_height] 756
+@28
+test_rv32i_system.UUT.CORE.rst
+test_rv32i_system.UUT.CORE.clk
+@24
+test_rv32i_system.UUT.CORE.instructions_completed[31:0]
+@2028
+^1 /home/avinash/src/cafe-instructors/labs/03_risc-v-cpu/tests/rv32i_states.txt
+test_rv32i_system.UUT.CORE.state[3:0]
+@28
+test_rv32i_system.UUT.CORE.PC_ena
+@22
+test_rv32i_system.UUT.CORE.PC[31:0]
+test_rv32i_system.UUT.CORE.IR[31:0]
+@28
+test_rv32i_system.UUT.CORE.op[6:0]
+@22
+test_rv32i_system.UUT.CORE.PC_old[31:0]
+@4023
+^>1 /home/avinash/src/cafe-instructors/labs/03_risc-v-cpu/gtkwave_filter.py
+test_rv32i_system.UUT.CORE.IR[31:0]
+@c00022
+test_rv32i_system.UUT.CORE.result[31:0]
+@28
+(0)test_rv32i_system.UUT.CORE.result[31:0]
+(1)test_rv32i_system.UUT.CORE.result[31:0]
+(2)test_rv32i_system.UUT.CORE.result[31:0]
+(3)test_rv32i_system.UUT.CORE.result[31:0]
+(4)test_rv32i_system.UUT.CORE.result[31:0]
+(5)test_rv32i_system.UUT.CORE.result[31:0]
+(6)test_rv32i_system.UUT.CORE.result[31:0]
+(7)test_rv32i_system.UUT.CORE.result[31:0]
+(8)test_rv32i_system.UUT.CORE.result[31:0]
+(9)test_rv32i_system.UUT.CORE.result[31:0]
+(10)test_rv32i_system.UUT.CORE.result[31:0]
+(11)test_rv32i_system.UUT.CORE.result[31:0]
+(12)test_rv32i_system.UUT.CORE.result[31:0]
+(13)test_rv32i_system.UUT.CORE.result[31:0]
+(14)test_rv32i_system.UUT.CORE.result[31:0]
+(15)test_rv32i_system.UUT.CORE.result[31:0]
+(16)test_rv32i_system.UUT.CORE.result[31:0]
+(17)test_rv32i_system.UUT.CORE.result[31:0]
+(18)test_rv32i_system.UUT.CORE.result[31:0]
+(19)test_rv32i_system.UUT.CORE.result[31:0]
+(20)test_rv32i_system.UUT.CORE.result[31:0]
+(21)test_rv32i_system.UUT.CORE.result[31:0]
+(22)test_rv32i_system.UUT.CORE.result[31:0]
+(23)test_rv32i_system.UUT.CORE.result[31:0]
+(24)test_rv32i_system.UUT.CORE.result[31:0]
+(25)test_rv32i_system.UUT.CORE.result[31:0]
+(26)test_rv32i_system.UUT.CORE.result[31:0]
+(27)test_rv32i_system.UUT.CORE.result[31:0]
+(28)test_rv32i_system.UUT.CORE.result[31:0]
+(29)test_rv32i_system.UUT.CORE.result[31:0]
+(30)test_rv32i_system.UUT.CORE.result[31:0]
+(31)test_rv32i_system.UUT.CORE.result[31:0]
+@1401200
+-group_end
+@200
+-ALU
+@24
+test_rv32i_system.UUT.CORE.src_a[31:0]
+test_rv32i_system.UUT.CORE.src_b[31:0]
+@22
+test_rv32i_system.UUT.CORE.extended_immediate[31:0]
+test_rv32i_system.UUT.CORE.alu_result[31:0]
+@200
+-Register File Access
+@22
+test_rv32i_system.UUT.CORE.rs1[4:0]
+test_rv32i_system.UUT.CORE.rs2[4:0]
+test_rv32i_system.UUT.CORE.reg_A[31:0]
+test_rv32i_system.UUT.CORE.reg_B[31:0]
+@200
+-MMU
+@22
+test_rv32i_system.UUT.MMU.core_addr[31:0]
+@28
+test_rv32i_system.UUT.MMU.core_wr_ena
+@22
+test_rv32i_system.UUT.MMU.core_wr_data[31:0]
+@2028
+^2 /home/avinash/src/cafe-instructors/labs/03_risc-v-cpu/tests/mmu_bank_decoder.txt
+test_rv32i_system.UUT.MMU.bank_access[3:0]
+@28
+test_rv32i_system.UUT.MMU.mmr_access[4:0]
+@2022
+^3 /home/avinash/src/cafe-instructors/labs/03_risc-v-cpu/tests/mmu_mmr_index_t.txt
+test_rv32i_system.UUT.MMU.mmr_index[3:0]
+@28
+test_rv32i_system.UUT.MMU.bank_wr_decoder[3:0]
+@24
+test_rv32i_system.UUT.MMU.mmrs_rd_data[31:0]
+@200
+-Peripherals
+@22
+test_rv32i_system.UUT.MMU.mmr_led[31:0]
+@24
+test_rv32i_system.UUT.MMU.led_pwm0[3:0]
+test_rv32i_system.UUT.MMU.led_pwm1[3:0]
+test_rv32i_system.UUT.MMU.mmr_index[3:0]
+test_rv32i_system.UUT.MMU.timer_10kHz[31:0]
+test_rv32i_system.UUT.MMU.timer_1kHz[31:0]
+@200
+-Registers
+@22
+test_rv32i_system.UUT.CORE.REGISTER_FILE.gp[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.sp[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.fp[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.ra[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.a0[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.s0[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.s1[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.s2[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.s3[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.t0[31:0]
+@24
+test_rv32i_system.UUT.CORE.REGISTER_FILE.t1[31:0]
+test_rv32i_system.UUT.CORE.REGISTER_FILE.t2[31:0]
+@22
+test_rv32i_system.UUT.CORE.REGISTER_FILE.t3[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
