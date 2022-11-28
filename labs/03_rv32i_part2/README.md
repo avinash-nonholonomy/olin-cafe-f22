@@ -21,7 +21,7 @@ The `mmu` will also dump out the various sub-memories into `mmu_*.out` - these a
 
 
 ## Suggested Timeline
-Designing your own CPU from scratch is both challenging and rewarding. I've provided a very minimum scaffolding here, but have intermediate solutions available on request (e.g. a core with r-types implemented that you can use as an example to build up to more instructions.)
+Designing your own CPU from scratch is both challenging and rewarding. I've provided a very minimum scaffolding here, but have *intermediate solutions available on request* (e.g. a core with r-types implemented that you can use as an example to build up to more instructions.)
 
 - Before the break - read through the provided stub, assembler, etc.
 - Monday - 11/28 - implement at least a few I and R type instructions.
