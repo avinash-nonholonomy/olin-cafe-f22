@@ -180,11 +180,11 @@ def line_to_bits(line, labels={}, address=0):
             raise LineException(
                 f"label '{label}' was not in the stored table.", )
         offset = int(labels[label]) - address
-        imm12 = BitArray(int=offset, length=12)
+        imm12 = BitArray(int=offset, length=13)
         print(
             f"Found a branch, setting BTA to offset = {offset}, imm12 = {imm12}")
         bits = imm12[0:1] + imm12[2:8] + rs2 + rs1 + funct3_codes[instruction] + \
-            imm12[7:11] + imm12[1:2] + op_codes[instruction]
+            imm12[8:12] + imm12[1:2] + op_codes[instruction]
     if instruction == 'jal':
         rd, label = args
         rd = register_to_bits(rd)

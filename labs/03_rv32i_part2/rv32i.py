@@ -246,8 +246,8 @@ def line_to_bits(line, labels={}, address=0):
             )
         offset = int(labels[label]) - address
         # offset = offset >> 1  # TODO(avinash) double check
-        check_imm(offset, 12)
-        imm12 = BitArray(int=offset, length=12)
+        check_imm(offset, 13)
+        imm12 = BitArray(int=offset, length=13)
         print("#" * 48)
 
         print(
@@ -262,7 +262,7 @@ def line_to_bits(line, labels={}, address=0):
             + rs2
             + rs1
             + funct3_codes[instruction]
-            + imm12[7:11]
+            + imm12[8:12]
             + imm12[1:2]
             + op_codes[instruction]
         )
