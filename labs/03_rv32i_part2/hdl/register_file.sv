@@ -32,7 +32,7 @@ end
 // Use python to instantiate a bunch of register modules with the right connections.
 
 // python: print(",".join(["x%02d"%i for i in range(0,32)]))
-wire [31:0] x01,x02,x03,x04,x05,x06,x07,x08,x09,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30,x31;
+wire signed [31:0] x01,x02,x03,x04,x05,x06,x07,x08,x09,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30,x31; // Keep these signed for pretty printing when debugging.
 logic [31:0] wr_enas; // separate enable for each register
 
 
@@ -248,8 +248,49 @@ always_comb begin : REGISTER_ALIASES
   a2 = x12;
   a3 = x13;
   a4 = x14;
-  a6 = x15;
-  a7 = x16;
+  a5 = x15;
+  a6 = x16;
+  a7 = x17;
 end
+
+task print_state;
+  $display("|---------------------------------------|");
+  $display("| Register File State                   |");
+  $display("|---------------------------------------|");
+  $display("| %12s = 0x%8h (%10d)|", "x00, zero", x00, x00);
+  $display("| %12s = 0x%8h (%10d)|", "x01, ra", x01, x01);
+  $display("| %12s = 0x%8h (%10d)|", "x02, sp", x02, x02);
+  $display("| %12s = 0x%8h (%10d)|", "x03, gp", x03, x03);
+  $display("| %12s = 0x%8h (%10d)|", "x04, tp", x04, x04);
+  $display("| %12s = 0x%8h (%10d)|", "x05, t0", x05, x05);
+  $display("| %12s = 0x%8h (%10d)|", "x06, t1", x06, x06);
+  $display("| %12s = 0x%8h (%10d)|", "x07, t2", x07, x07);
+  $display("| %12s = 0x%8h (%10d)|", "x08, s0", x08, x08);
+  $display("| %12s = 0x%8h (%10d)|", "x09, s1", x09, x09);
+  $display("| %12s = 0x%8h (%10d)|", "x10, a0", x10, x10);
+  $display("| %12s = 0x%8h (%10d)|", "x11, a1", x11, x11);
+  $display("| %12s = 0x%8h (%10d)|", "x12, a2", x12, x12);
+  $display("| %12s = 0x%8h (%10d)|", "x13, a3", x13, x13);
+  $display("| %12s = 0x%8h (%10d)|", "x14, a4", x14, x14);
+  $display("| %12s = 0x%8h (%10d)|", "x15, a5", x15, x15);
+  $display("| %12s = 0x%8h (%10d)|", "x16, a6", x16, x16);
+  $display("| %12s = 0x%8h (%10d)|", "x17, a7", x17, x17);
+  $display("| %12s = 0x%8h (%10d)|", "x18, s2", x18, x18); 
+  $display("| %12s = 0x%8h (%10d)|", "x19, s3", x19, x19); 
+  $display("| %12s = 0x%8h (%10d)|", "x20, s4", x20, x20); 
+  $display("| %12s = 0x%8h (%10d)|", "x21, s5", x21, x21); 
+  $display("| %12s = 0x%8h (%10d)|", "x22, s6", x22, x22); 
+  $display("| %12s = 0x%8h (%10d)|", "x23, s7", x23, x23); 
+  $display("| %12s = 0x%8h (%10d)|", "x24, s8", x24, x24); 
+  $display("| %12s = 0x%8h (%10d)|", "x25, s9", x25, x25); 
+  $display("| %12s = 0x%8h (%10d)|", "x26, s10", x26, x26); 
+  $display("| %12s = 0x%8h (%10d)|", "x27, s11", x27, x27); 
+  $display("| %12s = 0x%8h (%10d)|", "x28, t3", x28, x28); 
+  $display("| %12s = 0x%8h (%10d)|", "x29, t4", x29, x29); 
+  $display("| %12s = 0x%8h (%10d)|", "x30, t5", x30, x30); 
+  $display("| %12s = 0x%8h (%10d)|", "x31, t6", x31, x31); 
+  $display("|---------------------------------------|");
+endtask
+
 `endif // SIMULATION
 endmodule
