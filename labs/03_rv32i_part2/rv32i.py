@@ -231,7 +231,7 @@ def line_to_bits(line, labels={}, address=0):
         imm12 = process_imm(match.group(1), 12)
         imm12 = BitArray(int=imm12, length=12)
 
-        rs = register_to_bits(match.group(2))
+        rs = register_to_bits(match.group(3))
         rd = register_to_bits(rd)
         bits = (
             imm12 + rs + funct3_codes[instruction] + rd + op_codes[instruction]
@@ -245,7 +245,7 @@ def line_to_bits(line, labels={}, address=0):
             )
         imm12 = process_imm(match.group(1), 12)
         imm12 = BitArray(int=int(match.group(1)), length=12)
-        rs1 = register_to_bits(match.group(2))
+        rs1 = register_to_bits(match.group(3))
         rs2 = register_to_bits(rs2)
         # bitstring slicing is opposite to Verilog (0 is MSB)
         bits = (
