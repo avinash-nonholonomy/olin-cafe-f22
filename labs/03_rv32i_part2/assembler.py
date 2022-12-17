@@ -29,6 +29,7 @@ class AssemblyProgram:
         line = line.strip()
         parsed["original"] = line
         line = re.sub("\s*#.*", "", line)  # Remove comments.
+        line = re.sub("\s*//.*", "", line)  # Remove C-style comments.
         match = re.search("^(\w+):", line)
         if match:
             self.labels[match.group(1)] = self.address
@@ -86,21 +87,15 @@ class AssemblyProgram:
         address = 0
         for line in self.parsed_lines:
             try:
-                bits = rv32i.line_to_bits(
-                    line, labels=self.labels, address=address
-                )
+                bits = rv32i.line_to_bits(line, labels=self.labels, address=address)
             except rv32i.LineException as e:
-                print(
-                    f"Error on line {line['line_number']} ({line['instruction']})"
-                )
+                print(f"Error on line {line['line_number']} ({line['instruction']})")
                 print(f"  {e}")
                 print(f"  original line: {line['original']}")
                 return -1
             except Exception as e:
                 print(f"Unhandled error, possible bug in assembler!!!")
-                print(
-                    f"Error on line {line['line_number']} ({line['instruction']})"
-                )
+                print(f"Error on line {line['line_number']} ({line['instruction']})")
                 print(f"  {e}")
                 print(f"  original line: {line['original']}")
                 raise e
@@ -123,9 +118,7 @@ class AssemblyProgram:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "input", help="input file name of human readable assembly"
-    )
+    parser.add_argument("input", help="input file name of human readable assembly")
     parser.add_argument(
         "-o",
         "--output",
@@ -153,9 +146,7 @@ def main():
             ap.parse_line(line)
     if args.verbose:
         print(f"Parsed {len(ap.parsed_lines)} instructions. Label table:")
-        print(
-            "  " + ",\n  ".join([f"{k} -> {ap.labels[k]}" for k in ap.labels])
-        )
+        print("  " + ",\n  ".join([f"{k} -> {ap.labels[k]}" for k in ap.labels]))
     if args.output:
         sys.exit(
             ap.write_mem(

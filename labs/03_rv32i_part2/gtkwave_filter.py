@@ -24,25 +24,25 @@ async def instruction_filter():
         except asyncio.exceptions.TimeoutError:
             continue
         except EOFError:
-            sys.stderr.write(f">>> Translation stopping.\n")
+            # sys.stderr.write(f">>> Translation stopping.\n")
             return 0
         except Exception as e:
-            sys.stderr.write(f">>> Uncaught Exception: {dir(e)} {e}\n")
+            # sys.stderr.write(f">>> Uncaught Exception: {dir(e)} {e}\n")
             return 1
         if not line:
-            sys.stderr.write(f">>> Translation stopping.\n")
+            # sys.stderr.write(f">>> Translation stopping.\n")
             return 0
         line = line.decode()
         line = line.strip()
-        sys.stderr.write(f">>> line: {line}\n")
+        # sys.stderr.write(f">>> line: {line}\n")
 
         if "x" in line.lower():
             writer.write(bytes("< X >\n", "ascii"))
             continue
-        sys.stderr.write(f">>> {line}\n")
+        # sys.stderr.write(f">>> {line}\n")
         bits = BitArray(hex=line)
         if not bits or bits.length != 32:
-            sys.stderr.write(f">>> bad bit array: {bits} form line {line}\n")
+            # sys.stderr.write(f">>> bad bit array: {bits} form line {line}\n")
             writer.write(bytes(line + "\n", "ascii"))
             continue
         # TODO(avinash) - generate labels from known assembly file.
@@ -50,7 +50,7 @@ async def instruction_filter():
             disassembled = rv32i.bits_to_line(bits)
         except Exception as e:
             writer.write(bytes(" > ??? < \n", "ascii"))
-            sys.stderr.write("f>>> Couldn't parse {line}\n")
+            # sys.stderr.write("f>>> Couldn't parse {line}\n")
 
         writer.write(bytes(f"{disassembled}\n", "ascii"))
 

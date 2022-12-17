@@ -6,7 +6,7 @@ except:
     )
 import re
 
-pattern_immediate_offset_register = "(-?\d+)\((\w+)\)"
+pattern_immediate_offset_register = "(-?(0x)?\d+)\((\w+)\)"
 
 register_names = [
     ["x0", "zero"],  # zero constant
@@ -149,9 +149,30 @@ class LineException(Exception):
     pass
 
 
-def check_imm(imm, bits):
-    if imm >= 2 ** (bits - 1) or imm < -(2 ** (bits - 1)):
+def check_immediate_bounds(imm, bits, signed=True):
+    min_val = 0
+    max_val = 2**bits - 1
+    if signed:
+        min_val = -(2 ** (bits - 1))
+        max_val = 2 ** (bits - 1) - 1
+    if imm > max_val or imm < min_val:
         raise LineException(f"Immediate {imm} does not fit into {bits} bits.")
+
+
+def process_imm(imm, bits, signed=True):
+    original = imm
+    imm = imm.strip()
+    negative = imm.startswith("-")
+    if negative:
+        imm = imm[1:]
+    if "0x" in imm:
+        imm = int(imm, 16)
+    else:
+        imm = int(imm)
+    if negative:
+        imm *= -1
+    check_immediate_bounds(imm, bits, signed)
+    return imm
 
 
 def line_to_bits(line, labels={}, address=0):
@@ -184,9 +205,13 @@ def line_to_bits(line, labels={}, address=0):
         rd, rs1, imm12 = args
         rd = register_to_bits(rd)
         rs1 = register_to_bits(rs1)
-        imm12 = int(imm12)
-        check_imm(imm12, 12)
+
+        imm12 = process_imm(imm12, 12)
         imm12 = BitArray(int=imm12, length=12)
+        if instruction in ["slli", "srli"]:
+            imm12[0:7] = "0b0000000"
+        if instruction == "srai":
+            imm12[0:7] = "0b0100000"
         bits = (
             imm12
             + rs1
@@ -203,14 +228,10 @@ def line_to_bits(line, labels={}, address=0):
             raise LineException(
                 "Load: immediate offset incorrectly formatted."
             )
-        imm12 = int(match.group(1))
-        check_imm(imm12, 12)
-        imm12 = BitArray(int=int(match.group(1)), length=12)
-        if instruction in ["slli", "srli"]:
-            imm12[0:7] = "0b0000000"
-        if instruction == "srai":
-            imm12[0:7] = "0b0100000"
-        rs = register_to_bits(match.group(2))
+        imm12 = process_imm(match.group(1), 12)
+        imm12 = BitArray(int=imm12, length=12)
+
+        rs = register_to_bits(match.group(3))
         rd = register_to_bits(rd)
         bits = (
             imm12 + rs + funct3_codes[instruction] + rd + op_codes[instruction]
@@ -222,10 +243,9 @@ def line_to_bits(line, labels={}, address=0):
             raise LineException(
                 "Load: immediate offset incorrectly formatted.",
             )
-        imm12 = int(match.group(1))
-        check_imm(imm12, 12)
+        imm12 = process_imm(match.group(1), 12)
         imm12 = BitArray(int=int(match.group(1)), length=12)
-        rs1 = register_to_bits(match.group(2))
+        rs1 = register_to_bits(match.group(3))
         rs2 = register_to_bits(rs2)
         # bitstring slicing is opposite to Verilog (0 is MSB)
         bits = (
@@ -246,7 +266,7 @@ def line_to_bits(line, labels={}, address=0):
             )
         offset = int(labels[label]) - address
         offset = offset >> 1
-        check_imm(offset, 12)
+        check_immediate_bounds(offset, 12)
         imm12 = BitArray(int=offset, length=12)
         bits = (
             imm12[0:1]
@@ -266,7 +286,7 @@ def line_to_bits(line, labels={}, address=0):
                 f"label '{label}' was not in the stored table.",
             )
         offset = (labels[label] - address) >> 1
-        check_imm(offset, 20)
+        check_immediate_bounds(offset, 20)
         imm = BitArray(int=offset, length=20)
 
         # imm[20|10:1|11|19:12] in normal bit order, this library makes us flip that
@@ -279,8 +299,8 @@ def line_to_bits(line, labels={}, address=0):
     if instruction in utypes:
         rd, upimm = args
         rd = register_to_bits(rd)
-        check_imm(upimm, 20)
-        upimm = BitArray(int=int(upimm), length=20)
+        upimm = process_imm(upimm, 20, signed=False)
+        upimm = BitArray(uint=upimm, length=20)
         bits = upimm + rd + op_codes[instruction]
 
     if not bits:
